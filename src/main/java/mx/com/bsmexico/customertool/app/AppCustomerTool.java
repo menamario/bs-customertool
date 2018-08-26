@@ -41,7 +41,7 @@ public class AppCustomerTool extends Application {
 		// TODO Auto-generated method stub
 		
 		primaryStage.setTitle("Herramienta Banco Sabadell");
-		primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/img/bs-logo.png")));
+		primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/img/logoSabadellCircle.png")));
 		
 		
 		
@@ -62,10 +62,10 @@ public class AppCustomerTool extends Application {
 		canvas.setMinHeight(115);
 		
 		
-		Image image = new Image("/img/bs-logo.png");
+		Image image = new Image("/img/logoSabadell.png");
 		ImageView iv1 = new ImageView();
 		iv1.setImage(image);
-		iv1.relocate(25, 15);
+		iv1.relocate(32, 25);
 		iv1.setFitWidth(250);
 		iv1.setPreserveRatio(true);
 		iv1.setSmooth(true);
@@ -84,8 +84,10 @@ public class AppCustomerTool extends Application {
 		
 		root.setCenter(desktop);
 		Scene scene = new Scene(root, 1280, 790);
-		desktop.setMinSize(scene.getWidth(), scene.getHeight()-canvas.getMinHeight());
-		desktop.setPrefSize(scene.getWidth(), scene.getHeight()-canvas.getMinHeight());
+		
+//		desktop.setMinSize(scene.getWidth(), scene.getHeight()-canvas.getMinHeight());
+//		desktop.setPrefSize(scene.getWidth(), scene.getHeight()-canvas.getMinHeight());
+		desktop.maxHeightProperty().bind(scene.heightProperty());
 		desktop.render();
 		
 		
@@ -93,6 +95,10 @@ public class AppCustomerTool extends Application {
 		
 		scene.getStylesheets().add(getClass().getResource("/css/application.css").toExternalForm());
 		primaryStage.setScene(scene);
+		
+		
+		
+		
 		primaryStage.show();
 	}
 

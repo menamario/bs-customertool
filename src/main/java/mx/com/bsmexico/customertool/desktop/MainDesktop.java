@@ -1,5 +1,8 @@
 package mx.com.bsmexico.customertool.desktop;
 
+import java.io.IOException;
+
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -17,13 +20,15 @@ public class MainDesktop extends Desktop {
 
 	@Override
 	protected Pane buildDesktop() {
-		//setStyle("-fx-background-color: cyan");
+		setStyle("-fx-background-color: cyan");
+
 		layout = new BorderPane();
-		layout.setStyle("-fx-background-color: black");
-		layout.setMinWidth(1280);
+		layout.setStyle("-fx-background-color: green");
+		layout.prefHeightProperty().bind(super.heightProperty());
+		layout.prefWidthProperty().bind(super.widthProperty());
 		
 		
-		setWorkArea(buildDefaultPane());
+		setWorkArea(buildDefaultWorkArea());
 		
 		showMenu();
 		loadWorkArea();
@@ -31,7 +36,7 @@ public class MainDesktop extends Desktop {
 		return layout;
 	}
 	
-	public Pane buildDefaultPane(){
+	public Pane buildDefaultWorkArea(){
 		Pane pane = new Pane();
 		pane.setStyle("-fx-background-color: black");
 		pane.setMinSize(500, getMinHeight());

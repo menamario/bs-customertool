@@ -137,7 +137,7 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 				graphicSection.setSpacing(9);
 
 
-				double height = (getDesktop().getMinHeight() - 15 - (section.getChilden().size() - 1 ) * 9 ) / section.getChilden().size();
+				double height = (getDesktop().getMaxHeight() - 115 - 15 - (section.getChilden().size() - 1 ) * 9 ) / section.getChilden().size();
 
 				section.getChilden().forEach(s -> {
 					Region graphic = s.getGraphic();
