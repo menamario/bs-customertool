@@ -19,6 +19,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import mx.com.bsmexico.customertool.api.Feature;
 import mx.com.bsmexico.customertool.api.NavRoute.NavNode;
+import mx.com.bsmexico.customertool.api.layouts.control.FeatureMenuNavigator;
+import mx.com.bsmexico.customertool.api.layouts.control.TreeNavNode;
 
 /**
  * @author jchr
