@@ -32,13 +32,11 @@ public class AppCustomerTool extends Application {
 	@Override
 	public void init() throws Exception {
 		root =  new BorderPane();
-		//root.setStyle("-fx-background-color: #000000");
 
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
 		
 		primaryStage.setTitle("Herramienta Banco Sabadell");
 		primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/img/logoSabadellCircle.png")));
@@ -78,6 +76,7 @@ public class AppCustomerTool extends Application {
 		
 		MenuNavigator menu = new DefaultMenuNavigator(features);
 		Desktop desktop = new MainDesktop(menu);
+		desktop.setStage(primaryStage);
 		menu.setDesktop(desktop);
 		
 		
@@ -85,8 +84,6 @@ public class AppCustomerTool extends Application {
 		root.setCenter(desktop);
 		Scene scene = new Scene(root, 1280, 790);
 		
-//		desktop.setMinSize(scene.getWidth(), scene.getHeight()-canvas.getMinHeight());
-//		desktop.setPrefSize(scene.getWidth(), scene.getHeight()-canvas.getMinHeight());
 		desktop.maxHeightProperty().bind(scene.heightProperty());
 		desktop.render();
 		
