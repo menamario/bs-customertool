@@ -40,3 +40,12 @@
     -fx-background-color: #bfd6f3;
 }
 
+.table-row-cell:invalid {
+    -fx-background-color: #ffff02;
+}
+
+.invalid {
+    -fx-background-color: #ffff02;
+}
+
+
