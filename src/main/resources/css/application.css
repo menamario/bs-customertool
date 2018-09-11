@@ -7,6 +7,11 @@
 
 }
 
+.table-cell:selected{
+    -fx-background-color: rgba(0,109,255,0.5) !important;
+}
+
+
 .browser {
     background-color: #f0a21d; 
     font-family: Arial, Helvetica, sans-serif;
@@ -40,12 +45,17 @@
     -fx-background-color: #bfd6f3;
 }
 
-.table-row-cell:invalid {
-    -fx-background-color: #ffff02;
+.table-row-cell .invalid {
+    -fx-background-color: rgba(255,255,2,0.5);
+    -fx-font-weight: bold;
+    -fx-text-fill: #006dff;
 }
 
+
 .invalid {
-    -fx-background-color: #ffff02;
+    -fx-background-color: rgba(255,255,2,0.5);
+    -fx-font-weight: bold;
+    -fx-text-fill: #006dff;
 }
 
 
