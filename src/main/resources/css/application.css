@@ -31,19 +31,34 @@
     font-weight: bold;
 }
 
+.texto14 {
+	-fx-text-fill: white;
+    -fx-font-family: FranklinGothicLT-Demi;
+    -fx-font-size: 14px;
+}
+
 .table-view .column-header .label {
     -fx-text-fill: white;
     -fx-font-family: FranklinGothicLT-Demi;
-    -fx-font-size: 10px;
+    -fx-font-size: 12px;
 }
 
 .table-view .column-header{
 	-fx-background-color: black;
 }
 
+.tabla-referencias .column-header {
+	-fx-background-color: #7f7f7f !important;
+}
+
 .table-row-cell:odd {
     -fx-background-color: #bfd6f3;
 }
+
+.tabla-referencias .table-row-cell:odd {
+    -fx-background-color: #e5e5e5 !important;
+}
+
 
 .table-row-cell .invalid {
     -fx-background-color: rgba(255,255,2,0.5);

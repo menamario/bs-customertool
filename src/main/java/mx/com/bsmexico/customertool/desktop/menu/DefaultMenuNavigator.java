@@ -139,7 +139,7 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 				graphicSection.setSpacing(9);
 
 
-				double height = (getDesktop().getMaxHeight() - 115 - 15 - (section.getChilden().size() - 1 ) * 9 ) / section.getChilden().size();
+				double height = (getDesktop().getMaxHeight() - 115 - 27 - 15 - (section.getChilden().size() - 1 ) * 9 ) / section.getChilden().size();
 
 				section.getChilden().forEach(s -> {
 					Region graphic = s.getGraphic();
@@ -186,10 +186,11 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 			};
 			// bind with id
 			submenu.setId(node.getId());
+			double height = (getDesktop().getMaxHeight() - 115 - 27 - 15 - (node.getChilden().size() - 1 ) * 9 ) / node.getChilden().size();
 			node.getChilden().forEach(s -> {
 				Region g = s.getGraphic();
-				g.setMaxSize(176, 328);
-				g.setMinSize(176, 328);
+				g.setMaxSize(176, height);
+				g.setMinSize(176, height);
 				
 				submenu.getChildren().add(g);
 			});
@@ -214,15 +215,13 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 		} else {
 			if (node.getType() == NODETYPE.LEAF_NODE) {
 				// Set event when click button
+				
 				graphic.setOnMouseClicked(evt -> {
+					hideLevels(deepLevel-1);
 					// show work area
 					if (node.getElement() != null && node.getElement() instanceof Feature) {
 						Feature component = (Feature) node.getElement();
-						component.launch();
-//						if (!getDesktop().getWorkArea().getChildren().isEmpty()) {
-//							getDesktop().getWorkArea().getChildren().remove(0);
-//						}
-//						getDesktop().getWorkArea().getChildren().add(component.getLayout().getNode());					
+						component.launch();				
 					}
 				});
 			}

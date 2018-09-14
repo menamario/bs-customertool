@@ -7,11 +7,17 @@ import java.util.List;
 import java.util.ServiceLoader;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.NodeOrientation;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import mx.com.bsmexico.customertool.api.Desktop;
 import mx.com.bsmexico.customertool.api.Feature;
@@ -82,6 +88,24 @@ public class AppCustomerTool extends Application {
 		
 		
 		root.setCenter(desktop);
+		
+		
+		Label legal = new Label("Este software es propiedad de Banco Sabadell, por lo que está prohibida su reproducción.");
+		HBox legalPane = new HBox();
+		legalPane.setPrefHeight(17);
+		legalPane.setStyle("-fx-background-color: black;");
+		legalPane.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+		legalPane.setAlignment(Pos.BOTTOM_LEFT);
+		legalPane.setPadding(new Insets(0,0,0,60));
+		legalPane.setMinHeight(17);
+		legal.setStyle("-fx-font-family: FranklinGothicLT; -fx-font-size: 14px; -fx-font-weight:bold");
+		legal.setTextFill(Color.WHITE);
+		//legal.setStyle("-fx-background-color: blue;");
+		legalPane.getChildren().add(legal);
+		root.setBottom(legalPane);
+		
+		
+		
 		Scene scene = new Scene(root, 1280, 790);
 		
 		desktop.maxHeightProperty().bind(scene.heightProperty());
