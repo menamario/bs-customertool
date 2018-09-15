@@ -51,12 +51,20 @@
 	-fx-background-color: #7f7f7f !important;
 }
 
+.tabla-impresion .column-header {
+	-fx-background-color: #66a7ff !important;
+}
+
 .table-row-cell:odd {
     -fx-background-color: #bfd6f3;
 }
 
 .tabla-referencias .table-row-cell:odd {
     -fx-background-color: #e5e5e5 !important;
+}
+
+.tabla-impresion .table-row-cell:odd {
+    -fx-background-color: #3e3e8ef !important;
 }
 
 
@@ -72,5 +80,6 @@
     -fx-font-weight: bold;
     -fx-text-fill: #006dff;
 }
+
 
 
