@@ -3,7 +3,6 @@ package mx.com.bsmexico.customertool.desktop;
 import javafx.geometry.Insets;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import mx.com.bsmexico.customertool.api.Desktop;
 import mx.com.bsmexico.customertool.api.MenuNavigator;
 
