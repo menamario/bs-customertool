@@ -1,14 +1,14 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
 .button-with-margin {
-    -fx-padding: 5px;
-    -fx-border-insets: 10px;
-    -fx-background-insets: 5px;
+    -fx-padding: 5.0px;
+    -fx-border-insets: 10.0px;
+    -fx-background-insets: 5.0px;
 
 }
 
 .table-cell:selected{
-    -fx-background-color: rgba(0,109,255,0.5) !important;
+    -fx-background-color: rgba(0.0,109.0,255.0,0.5) !important;
 }
 
 
@@ -18,29 +18,29 @@
 }
 
 .menu-toggle-button {
-    -fx-background-color: rgba(255,255,255,0.8);
+    -fx-background-color: rgba(255.0,255.0,255.0,0.8);
     font-family: FranklinGothicLT;
-    font-size: 14px;
+    font-size: 14.0px;
     font-weight: bold;
 }
 
 .menu-toggle-button:selected {
     -fx-background-color: #ffffff;
     font-family: FranklinGothicLT;
-    font-size: 14px;
+    font-size: 14.0px;
     font-weight: bold;
 }
 
 .texto14 {
 	-fx-text-fill: white;
     -fx-font-family: FranklinGothicLT-Demi;
-    -fx-font-size: 14px;
+    -fx-font-size: 14.0px;
 }
 
 .table-view .column-header .label {
     -fx-text-fill: white;
     -fx-font-family: FranklinGothicLT-Demi;
-    -fx-font-size: 12px;
+    -fx-font-size: 12.0px;
 }
 
 .table-view .column-header{
@@ -69,17 +69,14 @@
 
 
 .table-row-cell .invalid {
-    -fx-background-color: rgba(255,255,2,0.5);
+    -fx-background-color: rgba(255.0,255.0,2.0,0.5);
     -fx-font-weight: bold;
     -fx-text-fill: #006dff;
 }
 
 
 .invalid {
-    -fx-background-color: rgba(255,255,2,0.5);
+    -fx-background-color: rgba(255.0,255.0,2.0,0.5);
     -fx-font-weight: bold;
     -fx-text-fill: #006dff;
 }
-
-
-

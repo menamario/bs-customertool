@@ -60,7 +60,10 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 			if (navNode.getImg() == null) {
 				graphic = new ToggleButton(navNode.getTitle());
 			} else {
-				graphic = new ToggleButton(navNode.getTitle(), new ImageView(new Image(navNode.getImg())));
+				ImageView iv = new ImageView(new Image(navNode.getImg()));
+				iv.setFitWidth(126);
+				iv.setFitHeight(126);
+				graphic = new ToggleButton(navNode.getTitle(), iv);
 			}
 			graphic.setId(navNode.getName());
 			//((ToggleButton)graphic).setMaxSize(261, 216);
@@ -74,7 +77,10 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 			if (navNode.getImg() == null) {
 				graphic = new ToggleButton(navNode.getTitle());
 			} else {
-				graphic = new ToggleButton(navNode.getTitle(), new ImageView(new Image(navNode.getImg())));
+				ImageView iv = new ImageView(new Image(navNode.getImg()));
+				iv.setFitWidth(126);
+				iv.setFitHeight(126);
+				graphic = new ToggleButton(navNode.getTitle(), iv);
 				
 			}
 			graphic.setId(navNode.getName());

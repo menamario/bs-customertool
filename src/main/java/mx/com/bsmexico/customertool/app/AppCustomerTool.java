@@ -3,6 +3,7 @@ package mx.com.bsmexico.customertool.app;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ServiceLoader;
 
@@ -56,7 +57,7 @@ public class AppCustomerTool extends Application {
 			features.add(om);
 		}
 
-		
+		Collections.sort(features);
 
 		
 		Pane canvas = new Pane();
@@ -90,7 +91,7 @@ public class AppCustomerTool extends Application {
 		root.setCenter(desktop);
 		
 		
-		Label legal = new Label("Este software es propiedad de Banco Sabadell, por lo que está prohibida su reproducción.");
+		Label legal = new Label("Este software es propiedad de Banco Sabadell , por lo  que está prohibida  su reproducción total o parcial.");
 		HBox legalPane = new HBox();
 		legalPane.setPrefHeight(17);
 		legalPane.setStyle("-fx-background-color: black;");

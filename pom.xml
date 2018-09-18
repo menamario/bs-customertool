@@ -49,13 +49,13 @@
 			<version>2.0.11</version>
 		</dependency>
 		<dependency>
-			<groupId>mx.com.bsmexico</groupId>
-			<artifactId>bs-customertool-api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>com.googlecode.juniversalchardet</groupId>
+			<artifactId>juniversalchardet</artifactId>
+			<version>1.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>mx.com.bsmexico</groupId>
-			<artifactId>bs-dt-archivos</artifactId>
+			<artifactId>bs-customertool-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -66,6 +66,11 @@
 		<dependency>
 			<groupId>mx.com.bsmexico</groupId>
 			<artifactId>bs-dt-referencias</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>mx.com.bsmexico</groupId>
+			<artifactId>bs-dt-archivos</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
