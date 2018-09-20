@@ -3,6 +3,8 @@ package mx.com.bsmexico.customertool.desktop;
 import javafx.geometry.Insets;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import mx.com.bsmexico.customertool.api.Desktop;
 import mx.com.bsmexico.customertool.api.MenuNavigator;
 
@@ -10,6 +12,7 @@ public class MainDesktop extends Desktop {
 	
 	BorderPane layout;
 	Pane pleca;
+	Region opaqueLayer;
 	
 	public MainDesktop(final MenuNavigator menu) { 
 		super(menu);
@@ -19,6 +22,12 @@ public class MainDesktop extends Desktop {
 	@Override
 	protected Pane buildDesktop() {
 		setStyle("-fx-background-color: black");
+		
+		opaqueLayer = new Region();
+	    opaqueLayer.setStyle("-fx-background-color: #00000099;");
+	    opaqueLayer.setVisible(false);
+	    
+	    StackPane sp = new StackPane();
 
 		layout = new BorderPane();
 		layout.prefHeightProperty().bind(super.heightProperty());
@@ -41,8 +50,9 @@ public class MainDesktop extends Desktop {
 		
 		showMenu();
 		loadWorkArea();
+		sp.getChildren().addAll(layout,opaqueLayer);
 		
-		return layout;
+		return sp;
 	}
 	
 	public Pane buildDefaultWorkArea(){
@@ -61,7 +71,7 @@ public class MainDesktop extends Desktop {
 	@Override
 	public void showMenu() {
 		layout.setLeft(getMenu());
-		BorderPane.setMargin(getMenu(), new Insets(15,0,0,32));
+		BorderPane.setMargin(getMenu(), new Insets(15,0,0,65));
 	}
 
 
@@ -69,7 +79,7 @@ public class MainDesktop extends Desktop {
 	public void loadWorkArea() {
 		layout.setCenter(getWorkArea());
 		if(getWorkArea()!=null)
-		BorderPane.setMargin(getWorkArea(), new Insets(0,10,0,10));
+		BorderPane.setMargin(getWorkArea(), new Insets(0,20,0,45));
 	}
 	
 	
@@ -78,7 +88,15 @@ public class MainDesktop extends Desktop {
 		pleca.setStyle("-fx-background-color: " + color);
 	}
 	
+	@Override
+	public void opacar(){
+		this.opaqueLayer.setVisible(true);
+	}
 	
+	@Override
+	public void desOpacar(){
+		this.opaqueLayer.setVisible(false);
+	}
 	
 	
 	

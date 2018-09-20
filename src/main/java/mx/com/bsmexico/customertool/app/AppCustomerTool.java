@@ -20,6 +20,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import mx.com.bsmexico.customertool.api.Desktop;
 import mx.com.bsmexico.customertool.api.Feature;
 import mx.com.bsmexico.customertool.api.MenuNavigator;
@@ -62,16 +63,16 @@ public class AppCustomerTool extends Application {
 		
 		Pane canvas = new Pane();
 		canvas.setStyle("-fx-background-color: #006dff;");
-		canvas.setPrefSize(1280, 115);
-		canvas.setMaxHeight(115);
-		canvas.setMinHeight(115);
+		canvas.setPrefSize(1280, 89);
+		canvas.setMaxHeight(89);
+		canvas.setMinHeight(89);
 		
 		
 		Image image = new Image("/img/logoSabadell.png");
 		ImageView iv1 = new ImageView();
 		iv1.setImage(image);
-		iv1.relocate(32, 25);
-		iv1.setFitWidth(250);
+		iv1.relocate(65, 23);
+		iv1.setFitWidth(170);
 		iv1.setPreserveRatio(true);
 		iv1.setSmooth(true);
 		iv1.setCache(true);
@@ -107,7 +108,8 @@ public class AppCustomerTool extends Application {
 		
 		
 		
-		Scene scene = new Scene(root, 1280, 790);
+		Scene scene = new Scene(root, 1280, 750);
+		
 		
 		desktop.maxHeightProperty().bind(scene.heightProperty());
 		desktop.render();
@@ -118,8 +120,9 @@ public class AppCustomerTool extends Application {
 		scene.getStylesheets().add(getClass().getResource("/css/application.css").toExternalForm());
 		primaryStage.setScene(scene);
 		
-		
-		
+		primaryStage.setMinWidth(944);
+		primaryStage.setMinHeight(674);		
+	
 		
 		primaryStage.show();
 	}

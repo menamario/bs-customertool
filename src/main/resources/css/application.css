@@ -37,14 +37,18 @@
     -fx-font-size: 14.0px;
 }
 
+
 .table-view .column-header .label {
     -fx-text-fill: white;
     -fx-font-family: FranklinGothicLT-Demi;
     -fx-font-size: 12.0px;
+
 }
 
 .table-view .column-header{
 	-fx-background-color: black;
+	 -fx-border-color: gray;
+    -fx-table-cell-border-color:gray;
 }
 
 .tabla-referencias .column-header {
@@ -74,6 +78,13 @@
     -fx-text-fill: #006dff;
 }
 
+.table-cell{
+-fx-border-color: gray;
+-fx-table-cell-border-color:gray;
+}
+
+.table-view{
+-fx-border-color: white;}
 
 .invalid {
     -fx-background-color: rgba(255.0,255.0,2.0,0.5);
