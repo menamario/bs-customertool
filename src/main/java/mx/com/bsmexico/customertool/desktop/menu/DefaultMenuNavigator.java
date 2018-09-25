@@ -145,7 +145,7 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 				graphicSection.setSpacing(9);
 
 
-				double height = (getDesktop().getMaxHeight() - 89 - 27 - 15 - (section.getChilden().size() - 1 ) * 9 ) / section.getChilden().size();
+				double height = (getDesktop().getMaxHeight() - 89 - 60 - (section.getChilden().size() - 1 ) * 9 ) / section.getChilden().size();
 
 				section.getChilden().forEach(s -> {
 					Region graphic = s.getGraphic();
@@ -187,12 +187,13 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 				protected void layoutChildren() {
 					super.layoutChildren();
 					// TODO acomodar tamaños y posiciones de las secciones
-					setSpacing(9);
+					
 				}
 			};
 			// bind with id
 			submenu.setId(node.getId());
-			double height = (getDesktop().getMaxHeight() - 89 - 27 - 15 - (node.getChilden().size() - 1 ) * 9 ) / node.getChilden().size();
+			submenu.setSpacing(9);
+			double height = (getDesktop().getMaxHeight() - 89 - 60 - (node.getChilden().size() - 1 ) * 9 ) / node.getChilden().size();
 			node.getChilden().forEach(s -> {
 				Region g = s.getGraphic();
 				g.setMaxSize(157, height);

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.ServiceLoader;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
@@ -20,7 +21,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 import mx.com.bsmexico.customertool.api.Desktop;
 import mx.com.bsmexico.customertool.api.Feature;
 import mx.com.bsmexico.customertool.api.MenuNavigator;
@@ -100,6 +101,7 @@ public class AppCustomerTool extends Application {
 		legalPane.setAlignment(Pos.BOTTOM_LEFT);
 		legalPane.setPadding(new Insets(0,0,0,60));
 		legalPane.setMinHeight(17);
+		legalPane.setMaxHeight(17);
 		legal.setStyle("-fx-font-family: FranklinGothicLT; -fx-font-size: 14px; -fx-font-weight:bold");
 		legal.setTextFill(Color.WHITE);
 		//legal.setStyle("-fx-background-color: blue;");
@@ -108,10 +110,10 @@ public class AppCustomerTool extends Application {
 		
 		
 		
-		Scene scene = new Scene(root, 1280, 750);
+		Scene scene = new Scene(root, 1280, 728);
 		
 		
-		desktop.maxHeightProperty().bind(scene.heightProperty());
+		desktop.setMaxHeight(708);
 		desktop.render();
 		
 		
@@ -122,8 +124,14 @@ public class AppCustomerTool extends Application {
 		
 		primaryStage.setMinWidth(944);
 		primaryStage.setMinHeight(674);		
-	
 		
+		primaryStage.setMaxWidth(1280);
+		primaryStage.setMaxHeight(728);	
+	
+		primaryStage.setMaximized(true);
+		primaryStage.setOnCloseRequest((WindowEvent event1) -> {
+	        Platform.exit();
+	    });
 		primaryStage.show();
 	}
 

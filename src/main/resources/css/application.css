@@ -11,12 +11,6 @@
     -fx-background-color: rgba(0.0,109.0,255.0,0.5) !important;
 }
 
-
-.browser {
-    background-color: #f0a21d; 
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 .menu-toggle-button {
     -fx-background-color: rgba(255.0,255.0,255.0,0.8);
     font-family: FranklinGothicLT;
@@ -33,14 +27,14 @@
 
 .texto14 {
 	-fx-text-fill: white;
-    -fx-font-family: FranklinGothicLT-Demi;
+    -fx-font-family: FranklinGothicLT;
     -fx-font-size: 14.0px;
 }
 
 
 .table-view .column-header .label {
     -fx-text-fill: white;
-    -fx-font-family: FranklinGothicLT-Demi;
+    -fx-font-family: FranklinGothicLT;
     -fx-font-size: 12.0px;
 
 }
@@ -59,6 +53,10 @@
 	-fx-background-color: #66a7ff !important;
 }
 
+.tabla-impresion .columna-check .column-header {
+	 -fx-border-color:white !important;
+}
+
 .table-row-cell:odd {
     -fx-background-color: #bfd6f3;
 }
@@ -68,7 +66,7 @@
 }
 
 .tabla-impresion .table-row-cell:odd {
-    -fx-background-color: #3e3e8ef !important;
+    -fx-background-color: #3e3e8e !important;
 }
 
 
@@ -79,15 +77,101 @@
 }
 
 .table-cell{
--fx-border-color: gray;
 -fx-table-cell-border-color:gray;
 }
 
 .table-view{
 -fx-border-color: white;}
 
+
 .invalid {
     -fx-background-color: rgba(255.0,255.0,2.0,0.5);
     -fx-font-weight: bold;
     -fx-text-fill: #006dff;
 }
+
+.root{
+	font-family: FranklinGothicLT;
+}
+
+
+
+
+
+
+
+.radio-button .radio {
+	-fx-border-width: 1px;
+    -fx-border-color: white;
+	-fx-background-color: black;
+	-fx-background-image: null;
+	-fx-background-radius: 18px;
+    -fx-border-radius: 18px;
+
+
+
+}
+
+.radio-button .dot {
+  -fx-mark-highlight-color: white ;
+  -fx-mark-color: white ;
+}
+
+
+.tab-header-background {
+    -fx-background-color: white !important;
+    -fx-border-color: white white #006dff white;
+    -fx-border-width: 0 0 2 0;
+    -fx-padding: 0 0 0 0;
+ 
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab {
+    -fx-shape: "M300,290 L310,168 L410,168 L421,290";
+}
+
+.tab-pane > .tab-header-area > .headers-region {
+	-fx-padding: 0 0 0 0;
+}
+
+.tab-pane > .tab-header-area{
+	-fx-padding: 0 0 0 30;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+	-fx-shape: "M300,290 L310,168 L410,168 L421,290";
+    -fx-focus-color: transparent;
+    
+    
+}
+
+.tab{
+
+	-fx-background-color: d8d8d8;
+	-fx-background-insets: 0 0 2 0;
+
+}
+
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected:top {
+	-fx-border-witdh: 3;
+	-fx-border-color: #006dff;
+    -fx-background-color: white;  
+    -fx-background-insets: 0 0 -1 0;
+    -fx-text-fill: black !important ;  
+}
+
+.tab-label {
+    -fx-text-fill: white;
+    -fx-font-weight:bold;
+    -fx-font-family: FranklinGothicLT;
+    -fx-font-size: 12.0px;
+}
+
+.tab:selected .tab-label { 
+    -fx-text-fill: black;
+    -fx-font-weight:bold;
+    -fx-font-family: FranklinGothicLT;
+    -fx-font-size: 12.0px;
+}
+
