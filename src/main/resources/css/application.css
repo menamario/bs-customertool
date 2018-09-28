@@ -47,6 +47,8 @@
 
 .tabla-referencias .column-header {
 	-fx-background-color: #7f7f7f !important;
+    -fx-border-color: lightgray;
+    -fx-table-cell-border-color:lightgray;
 }
 
 .tabla-impresion .column-header {
@@ -173,5 +175,25 @@
     -fx-font-weight:bold;
     -fx-font-family: FranklinGothicLT;
     -fx-font-size: 12.0px;
+}
+
+.combo-box-base  
+{
+    -fx-background-color: white, white, white, white;
+    -fx-background-radius: 0, 0, 0, 0;
+}
+
+.list-cell
+ {
+ 	-fx-font-family: FranklinGothicLT;
+    -fx-font-size: 14px;
+ }
+ .combo-box .combo-box-popup .list-cell{
+ 	-fx-background-color:#accaf3;
+ 	
+ }
+
+.combo-box .combo-box-popup .list-cell:hover {
+    -fx-background-color: #006dff ;
 }
 

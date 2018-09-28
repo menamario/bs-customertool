@@ -90,11 +90,13 @@
 					</execution>
 				</executions>
 				<configuration>
-					<vendor>Sabadell</vendor>
+					<vendor>Banco Sabadell</vendor>
 					<mainClass>mx.com.bsmexico.customertool.app.AppCustomerTool</mainClass>
 					<nativeInstallers />
 					<verbose>true</verbose>
-					<bundleArguments>
+					<needMenu>true</needMenu>
+                    <needShortcut>true</needShortcut>
+                    <bundleArguments>
 						<identifier>1.0</identifier>
 						<installdirChooser>true</installdirChooser>
 					</bundleArguments>

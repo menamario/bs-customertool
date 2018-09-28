@@ -47,7 +47,7 @@ public class AppCustomerTool extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		primaryStage.setTitle("Herramienta Banco Sabadell");
+		primaryStage.setTitle("Herramienta");
 		primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/img/logoSabadellCircle.png")));
 		
 		
@@ -93,7 +93,7 @@ public class AppCustomerTool extends Application {
 		root.setCenter(desktop);
 		
 		
-		Label legal = new Label("Este software es propiedad de Banco Sabadell , por lo  que está prohibida  su reproducción total o parcial.");
+		Label legal = new Label("Este software es propiedad de Banco Sabadell, por lo  que está prohibida  su reproducción total o parcial.");
 		HBox legalPane = new HBox();
 		legalPane.setPrefHeight(17);
 		legalPane.setStyle("-fx-background-color: black;");
