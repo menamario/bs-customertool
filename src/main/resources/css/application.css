@@ -8,22 +8,44 @@
 }
 
 .table-cell:selected{
-    -fx-background-color: rgba(0.0,109.0,255.0,0.5) !important;
+    -fx-background-color: rgba(255,255,255,0.7) !important;
+    -fx-border-color: #006dff;
+    -fx-border-width: 2;
+    -fx-text-fill: black;
+}
+
+.browser{
+	-fx-background-color:red;
+
+	
+}
+
+.table-view:focused {
+   
 }
 
 .menu-toggle-button {
-    -fx-background-color: rgba(255.0,255.0,255.0,0.8);
+    -fx-background-color: black;
     font-family: FranklinGothicLT;
     font-size: 14.0px;
     font-weight: bold;
+    -fx-text-fill: white;
 }
 
-.menu-toggle-button:selected {
+.menu-toggle-button2 {
+    -fx-background-color: #4c4c4c;
+    font-family: FranklinGothicLT;
+    font-size: 14.0px;
+    font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* .menu-toggle-button:selected {
     -fx-background-color: #ffffff;
     font-family: FranklinGothicLT;
     font-size: 14.0px;
     font-weight: bold;
-}
+}*/
 
 .texto14 {
 	-fx-text-fill: white;
@@ -63,6 +85,10 @@
     -fx-background-color: #bfd6f3;
 }
 
+.table-row-cell:selected {
+	-fx-background-color: #66a7ff;
+}
+
 .tabla-referencias .table-row-cell:odd {
     -fx-background-color: #e5e5e5 !important;
 }
@@ -83,7 +109,11 @@
 }
 
 .table-view{
--fx-border-color: white;}
+-fx-border-color: lightgray;
+-fx-focus-color: transparent;
+-fx-border-insets: 0 0 0 -1;
+-fx-background-insets: 0 0 0 0;
+}
 
 
 .invalid {
@@ -104,8 +134,8 @@
 
 .radio-button .radio {
 	-fx-border-width: 1px;
-    -fx-border-color: white;
-	-fx-background-color: black;
+    -fx-border-color: black;
+	-fx-background-color: white;
 	-fx-background-image: null;
 	-fx-background-radius: 18px;
     -fx-border-radius: 18px;
@@ -115,8 +145,8 @@
 }
 
 .radio-button .dot {
-  -fx-mark-highlight-color: white ;
-  -fx-mark-color: white ;
+  -fx-mark-highlight-color: black ;
+  -fx-mark-color: black ;
 }
 
 
@@ -181,19 +211,38 @@
 {
     -fx-background-color: white, white, white, white;
     -fx-background-radius: 0, 0, 0, 0;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    
 }
+
 
 .list-cell
  {
  	-fx-font-family: FranklinGothicLT;
     -fx-font-size: 14px;
+    -fx-text-fill: #006dff;
  }
  .combo-box .combo-box-popup .list-cell{
  	-fx-background-color:#accaf3;
+ 	-fx-text-fill: white;
  	
  }
 
 .combo-box .combo-box-popup .list-cell:hover {
     -fx-background-color: #006dff ;
+    -fx-text-fill: white;
+}
+
+.text-area{
+    -fx-background-color: #fff, #fff;
+}
+
+.text-area .content {
+    -fx-background-color: #fff;
+}
+
+.text-area:focused .content {
+    -fx-background-color: #fff;
 }
 

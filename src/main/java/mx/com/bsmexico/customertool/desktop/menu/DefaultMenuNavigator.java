@@ -1,10 +1,22 @@
 package mx.com.bsmexico.customertool.desktop.menu;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Field;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.w3c.dom.Document;
+
+import com.sun.webkit.WebPage;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.ContentDisplay;
@@ -17,6 +29,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import mx.com.bsmexico.customertool.api.Feature;
 import mx.com.bsmexico.customertool.api.NavRoute.NavNode;
 import mx.com.bsmexico.customertool.api.layouts.control.FeatureMenuNavigator;
@@ -40,7 +54,7 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 	}
 
 	protected void init() {
-		setStyle("-fx-background-color : black");
+		setStyle("-fx-background-color : white");
 		tg1 = new ToggleGroup();
 		tg2 = new ToggleGroup();
 
@@ -60,33 +74,69 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 			if (navNode.getImg() == null) {
 				graphic = new ToggleButton(navNode.getTitle());
 			} else {
-				ImageView iv = new ImageView(new Image(navNode.getImg()));
-				iv.setFitWidth(126);
-				iv.setFitHeight(126);
-				graphic = new ToggleButton(navNode.getTitle(), iv);
+//				ImageView iv = new ImageView(new Image(navNode.getImg()));
+//				iv.setFitWidth(126);
+//				iv.setFitHeight(126);
+//				graphic = new ToggleButton(navNode.getTitle(), iv);
+				
+				
+				String initialEditview = null;
+				try {
+					initialEditview = this.getHtml(113, readFile(navNode.getImg(), Charset.defaultCharset()));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				WebView browser = new WebView();
+				browser.setContextMenuEnabled(false);
+				browser.setMaxSize(130, 130);
+				WebEngine webEngine = browser.getEngine();
+				webEngine.documentProperty().addListener(new WebDocumentListener(webEngine));
+
+				browser.getEngine().loadContent(initialEditview);
+				browser.getStyleClass().add("browser");
+				graphic = new ToggleButton(navNode.getTitle(), browser);
+				
 			}
 			graphic.setId(navNode.getName());
-			//((ToggleButton)graphic).setMaxSize(261, 216);
-			//((ToggleButton)graphic).setMinSize(261, 216);
 			((ToggleButton)graphic).setContentDisplay(ContentDisplay.TOP);
-			graphic.getStyleClass().add("menu-toggle-button");
-			//((ToggleButton)graphic).setToggleGroup(tg1);
+			
+
 			break;
 		}
 		case LEAF_NODE: {
 			if (navNode.getImg() == null) {
 				graphic = new ToggleButton(navNode.getTitle());
 			} else {
-				ImageView iv = new ImageView(new Image(navNode.getImg()));
-				iv.setFitWidth(126);
-				iv.setFitHeight(126);
-				graphic = new ToggleButton(navNode.getTitle(), iv);
+//				ImageView iv = new ImageView(new Image(navNode.getImg()));
+//				iv.setFitWidth(126);
+//				iv.setFitHeight(126);
+//				graphic = new ToggleButton(navNode.getTitle(), iv);
+				
+				String initialEditview = null;
+				try {
+					initialEditview = this.getHtml(113, readFile(navNode.getImg(), Charset.defaultCharset()));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				WebView browser = new WebView();
+				browser.setContextMenuEnabled(false);
+				browser.setMaxSize(130, 130);
+				WebEngine webEngine = browser.getEngine();
+				webEngine.documentProperty().addListener(new WebDocumentListener(webEngine));
+
+				browser.getEngine().loadContent(initialEditview);
+				browser.getStyleClass().add("browser");
+				graphic = new ToggleButton(navNode.getTitle(), browser);
 				
 			}
 			graphic.setId(navNode.getName());
 
 			((ToggleButton)graphic).setContentDisplay(ContentDisplay.TOP);
-			graphic.getStyleClass().add("menu-toggle-button");
+			
 			((ToggleButton)graphic).setToggleGroup(tg1);
 			 
 			// TODO implementar style class
@@ -149,6 +199,7 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 
 				section.getChilden().forEach(s -> {
 					Region graphic = s.getGraphic();
+					graphic.getStyleClass().add("menu-toggle-button");
 				    graphic.setMinSize(233, height);
 				    graphic.setMaxSize(233, height);
 					graphicSection.getChildren().add(graphic);
@@ -196,6 +247,7 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 			double height = (getDesktop().getMaxHeight() - 89 - 60 - (node.getChilden().size() - 1 ) * 9 ) / node.getChilden().size();
 			node.getChilden().forEach(s -> {
 				Region g = s.getGraphic();
+				g.getStyleClass().add("menu-toggle-button2");
 				g.setMaxSize(157, height);
 				g.setMinSize(157, height);
 				
@@ -213,7 +265,11 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 				_levelPane.setVisible(true);
 				_levelPane.getChildren().forEach(sm -> {
 					// find submenu and set visible
-					sm.setVisible(node.getId().equals(sm.getId()));
+					if(node.getId().equals(sm.getId())){
+						sm.setVisible(!sm.isVisible());
+						
+					}
+					
 				});
 				// hide others levels
 				hideLevels(deepLevel);
@@ -253,5 +309,62 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 
 		}
 	}
+	
+	static String readFile(InputStream in, Charset encoding) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+		StringBuffer response = new StringBuffer();
+		for (String line; (line = reader.readLine()) != null; response.append(line))
+			;
+		return response.toString();
+	}
+
+	private String getHtml(int circle, int image, String circleColor, String svg) {
+		StringBuffer sb = new StringBuffer();
+		int radio = circle / 2;
+		sb.append(String.format(
+				"<html><head></head><body><svg  width='%d' height='%d'><circle cx='%d' cy='%d' r='%d' fill='%s'></circle><svg>",
+				circle, circle, radio, radio, radio, circleColor));
+		int desplazamientoImagen = (circle - image) / 2;
+		sb.append(String.format("<svg x='%d' y='%d' width='%d' height='%d' style='fill:white'>", desplazamientoImagen,
+				desplazamientoImagen, image, image));
+		sb.append(svg);
+		sb.append("</svg></body></html>");
+		return sb.toString();
+	}
+	
+	private String getHtml(int image, String svg) {
+		StringBuffer sb = new StringBuffer();
+		sb.append(String.format(
+				"<html><head></head><body>"));
+		
+		sb.append(String.format("<svg width='%d' height='%d'>", image, image));
+		sb.append(svg);
+		sb.append("</svg></body></html>");
+		return sb.toString();
+	}
+	
+	class WebDocumentListener implements ChangeListener<Document> { 
+	    private final WebEngine webEngine; 
+
+	    public WebDocumentListener(WebEngine webEngine) { 
+	        this.webEngine = webEngine; 
+	    } 
+
+	    @Override 
+	    public void changed(ObservableValue<? extends Document> arg0, 
+	            Document arg1, Document arg2) { 
+	        try { 
+	            // Use reflection to retrieve the WebEngine's private 'page' field. 
+	            Field f = webEngine.getClass().getDeclaredField("page"); 
+	            f.setAccessible(true); 
+	            WebPage page = (WebPage) f.get(webEngine); 
+	            // Set the background color of the page to be transparent. 
+	            page.setBackgroundColor((new java.awt.Color(0, 0, 0, 0)).getRGB()); 
+	        } catch (Exception e) { 
+	            System.out.println("Error: " + e);
+	        } 
+	    } 
+	}
+
 
 }

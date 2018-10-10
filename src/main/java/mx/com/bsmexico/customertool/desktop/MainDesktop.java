@@ -21,7 +21,7 @@ public class MainDesktop extends Desktop {
 
 	@Override
 	protected Pane buildDesktop() {
-		setStyle("-fx-background-color: black");
+		setStyle("-fx-background-color: white");
 		
 		opaqueLayer = new Region();
 	    opaqueLayer.setStyle("-fx-background-color: #00000099;");
@@ -39,7 +39,7 @@ public class MainDesktop extends Desktop {
 		pleca.setPrefHeight(5);
 		pleca.setMaxHeight(5);
 		pleca.setMinHeight(5);
-		pleca.setStyle("-fx-background-color: black");
+		pleca.setStyle("-fx-background-color: white");
 		
 		
 		
@@ -57,7 +57,7 @@ public class MainDesktop extends Desktop {
 	
 	public Pane buildDefaultWorkArea(){
 		Pane pane = new Pane();
-		pane.setStyle("-fx-background-color: black");
+		pane.setStyle("-fx-background-color: white");
 		pane.setMinSize(500, getMinHeight());
 		return pane;
 	}

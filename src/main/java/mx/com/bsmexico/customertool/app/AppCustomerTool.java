@@ -96,14 +96,14 @@ public class AppCustomerTool extends Application {
 		Label legal = new Label("Este software es propiedad de Banco Sabadell, por lo  que está prohibida  su reproducción total o parcial.");
 		HBox legalPane = new HBox();
 		legalPane.setPrefHeight(17);
-		legalPane.setStyle("-fx-background-color: black;");
+		legalPane.setStyle("-fx-background-color: white;");
 		legalPane.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
 		legalPane.setAlignment(Pos.BOTTOM_LEFT);
 		legalPane.setPadding(new Insets(0,0,0,60));
 		legalPane.setMinHeight(17);
 		legalPane.setMaxHeight(17);
 		legal.setStyle("-fx-font-family: FranklinGothicLT; -fx-font-size: 14px; -fx-font-weight:bold");
-		legal.setTextFill(Color.WHITE);
+		legal.setTextFill(Color.web("#A0A0A0"));
 		//legal.setStyle("-fx-background-color: blue;");
 		legalPane.getChildren().add(legal);
 		root.setBottom(legalPane);
@@ -128,7 +128,7 @@ public class AppCustomerTool extends Application {
 		primaryStage.setMaxWidth(1280);
 		primaryStage.setMaxHeight(728);	
 	
-		primaryStage.setMaximized(true);
+		//primaryStage.setMaximized(true);
 		primaryStage.setOnCloseRequest((WindowEvent event1) -> {
 	        Platform.exit();
 	    });
