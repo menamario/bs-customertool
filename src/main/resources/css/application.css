@@ -15,7 +15,8 @@
 }
 
 .browser{
-	-fx-background-color:red;
+	-fx-padding:0;
+	-fx-border-width:0;
 
 	
 }
