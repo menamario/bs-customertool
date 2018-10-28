@@ -91,14 +91,13 @@
 				</executions>
 				<configuration>
 					<vendor>Banco Sabadell</vendor>
+					<nativeReleaseVersion>1.0</nativeReleaseVersion>
 					<mainClass>mx.com.bsmexico.customertool.app.AppCustomerTool</mainClass>
 					<nativeInstallers />
 					<verbose>true</verbose>
 					<needMenu>true</needMenu>
                     <needShortcut>true</needShortcut>
                     <bundleArguments>
-                        <version>1.2</version>
-						<identifier>1.2</identifier>
 						<installdirChooser>true</installdirChooser>
 					</bundleArguments>
 				</configuration>
