@@ -82,7 +82,7 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 				
 				String initialEditview = null;
 				try {
-					initialEditview = this.getHtml(140, readFile(navNode.getImg(), Charset.defaultCharset()));
+					initialEditview = this.getHtml(113, readFile(navNode.getImg(), Charset.defaultCharset()));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -90,14 +90,13 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 
 				WebView browser = new WebView();
 				browser.setContextMenuEnabled(false);
-				browser.setMaxSize(140, 140);
+				browser.setMaxSize(130, 130);
 				WebEngine webEngine = browser.getEngine();
-				//webEngine.documentProperty().addListener(new WebDocumentListener(webEngine));
+				webEngine.documentProperty().addListener(new WebDocumentListener(webEngine));
 
 				browser.getEngine().loadContent(initialEditview);
 				browser.getStyleClass().add("browser");
-				//graphic = new ToggleButton(navNode.getTitle(), browser);
-				graphic = new ToggleButton(null, browser);
+				graphic = new ToggleButton(navNode.getTitle(), browser);
 				
 			}
 			graphic.setId(navNode.getName());
@@ -117,7 +116,7 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 				
 				String initialEditview = null;
 				try {
-					initialEditview = this.getHtml(140, readFile(navNode.getImg(), Charset.defaultCharset()));
+					initialEditview = this.getHtml(113, readFile(navNode.getImg(), Charset.defaultCharset()));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -125,13 +124,13 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 
 				WebView browser = new WebView();
 				browser.setContextMenuEnabled(false);
-				browser.setMaxSize(140, 140);
+				browser.setMaxSize(130, 130);
 				WebEngine webEngine = browser.getEngine();
-				//webEngine.documentProperty().addListener(new WebDocumentListener(webEngine));
+				webEngine.documentProperty().addListener(new WebDocumentListener(webEngine));
 
 				browser.getEngine().loadContent(initialEditview);
 				browser.getStyleClass().add("browser");
-				graphic = new ToggleButton(null, browser);
+				graphic = new ToggleButton(navNode.getTitle(), browser);
 				
 			}
 			graphic.setId(navNode.getName());
@@ -199,10 +198,8 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 				double height = (getDesktop().getMaxHeight() - 89 - 60 - (section.getChilden().size() - 1 ) * 9 ) / section.getChilden().size();
 
 				section.getChilden().forEach(s -> {
-					ToggleButton graphic = (ToggleButton)s.getGraphic();
+					Region graphic = s.getGraphic();
 					graphic.getStyleClass().add("menu-toggle-button");
-				    //((WebView)graphic.getGraphic()).setMinSize(233, height);
-				    //((WebView)graphic.getGraphic()).setMaxSize(233, height);
 				    graphic.setMinSize(233, height);
 				    graphic.setMaxSize(233, height);
 					graphicSection.getChildren().add(graphic);
@@ -325,7 +322,7 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 		StringBuffer sb = new StringBuffer();
 		int radio = circle / 2;
 		sb.append(String.format(
-				"<html><head></head><body style='margin: 0'><svg  width='%d' height='%d'><circle cx='%d' cy='%d' r='%d' fill='%s'></circle><svg>",
+				"<html><head></head><body><svg  width='%d' height='%d'><circle cx='%d' cy='%d' r='%d' fill='%s'></circle><svg>",
 				circle, circle, radio, radio, radio, circleColor));
 		int desplazamientoImagen = (circle - image) / 2;
 		sb.append(String.format("<svg x='%d' y='%d' width='%d' height='%d' style='fill:white'>", desplazamientoImagen,
@@ -338,7 +335,7 @@ public class DefaultMenuNavigator extends FeatureMenuNavigator {
 	private String getHtml(int image, String svg) {
 		StringBuffer sb = new StringBuffer();
 		sb.append(String.format(
-				"<html><head></head><body style='margin: 0'>"));
+				"<html><head></head><body>"));
 		
 		sb.append(String.format("<svg width='%d' height='%d'>", image, image));
 		sb.append(svg);

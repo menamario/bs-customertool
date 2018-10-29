@@ -26,7 +26,7 @@
 }
 
 .menu-toggle-button {
-    -fx-background-color: #006dff;
+    -fx-background-color: black;
     font-family: FranklinGothicLT;
     font-size: 14.0px;
     font-weight: bold;
@@ -34,7 +34,7 @@
 }
 
 .menu-toggle-button2 {
-    -fx-background-color: #006dff;
+    -fx-background-color: #4c4c4c;
     font-family: FranklinGothicLT;
     font-size: 14.0px;
     font-weight: bold;
