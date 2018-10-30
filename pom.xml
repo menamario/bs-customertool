@@ -91,7 +91,7 @@
 				</executions>
 				<configuration>
 					<vendor>Banco Sabadell</vendor>
-					<nativeReleaseVersion>1.0</nativeReleaseVersion>
+					<nativeReleaseVersion>1.2.1</nativeReleaseVersion>
 					<mainClass>mx.com.bsmexico.customertool.app.AppCustomerTool</mainClass>
 					<nativeInstallers />
 					<verbose>true</verbose>
