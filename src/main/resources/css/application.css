@@ -1,4 +1,15 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+@font-face {
+	src: url('FranklinGothic.ttf');
+}
+
+@font-face {
+	src: url('FranklinGothicDemi.ttf');
+}
+
+.flowFrank{
+	-fx-font-family: 'Franklin Gothic Book';
+}
 
 .button-with-margin {
     -fx-padding: 5.0px;
@@ -123,8 +134,9 @@
     -fx-text-fill: #006dff;
 }
 
-.root{
-	font-family: FranklinGothicLT;
+.text{
+	/*font-family: FranklinGothicLT;*/
+	/*-fx-font-family: 'Franklin Gothic Book';*/
 }
 
 
